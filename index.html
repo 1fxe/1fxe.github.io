@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Filip Wedzicha Portfolio">
+    <title>Filip</title>
+    <script src="script.js" referrerpolicy="strict-origin" type="application/javascript"></script>
+    <link rel="shortcut icon" href="imgs/favicon.ico" type="image/x-icon">
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap');
+
+    html, body {
+        height: 100%;
+        width: 100%;
+        padding: 0;
+        font-family: 'Open Sans', sans-serif;
+        background-color: #F0F0F0;
+    }
+
+    body {
+        overflow-x: hidden;
+    }
+
+    .content {
+        margin: auto;
+        max-width: 720px;
+    }
+
+    h1, h2 {
+        cursor: default;
+        user-select: none;
+    }
+
+    h3 {
+        font-weight: bold;
+    }
+
+    h4 {
+        font-weight: lighter;
+    }
+
+    p {
+        font-weight: normal;
+    }
+
+    .name {
+        margin-bottom: 1rem;
+        font-weight: normal;
+        font-size: 5rem;
+    }
+
+    .projects {
+        margin-bottom: 1rem;
+        font-weight: lighter;
+        font-size: 4rem;
+    }
+
+    .project {
+        max-width: 1080px;
+        margin-bottom: 3rem;
+    }
+
+    .project-imgs {
+        display: flex;
+        align-content: center;
+    }
+
+    .project-img {
+        margin: 1rem;
+        width: 6rem;
+    }
+
+    .socials {
+        padding: 0;
+    }
+
+    .socials > li {
+        display: inline;
+        padding: 0.5rem;
+    }
+
+    .img-grow:hover {
+        transform: scale(1.1);
+        transition-duration: 0.5s;
+    }
+
+    .socials > li > a > img {
+        width: 3rem;
+    }
+</style>
+<body>
+<div class="content">
+
+    <div>
+        <h1 class="name">Filip Wedzicha</h1>
+        <ul class="socials">
+            <li aria-label="GitHub"><a href="https://github.com/1fxe"><img class="img-grow" src="imgs/github-dark.png"
+                                                                           alt="github logo"></a>
+            </li>
+            <li aria-label="LinkedIn"><a href="#"><img class="img-grow" alt="linkedin logo" src="imgs/linkedin.png"></a>
+            </li>
+        </ul>
+    </div>
+    <div>
+        <h2 class="projects">Projects</h2>
+        <div class="project">
+            <div class="project-imgs">
+                <a href="https://eslfaceitgroup.com/about/our-vision/">
+                    <img class="project-img img-grow"
+                         src="imgs/efg-dark.svg"
+                         alt="esl faceit group logo"></a>
+                <a href="https://client.badlion.net/lite-edition">
+                    <img class="project-img img-grow"
+                         src="imgs/badlion-logo.png"
+                         alt="badlion logo"></a>
+            </div>
+            <h3>Badlion Client</h3>
+            <h4>Java, OpenGL, GLSL, Profiling (Memory, Performance)</h4>
+            <p>"<a href="https://client.badlion.net/lite-edition">Badlion Client</a> today is one of the
+                largest Minecraft communities for gamers worldwide. We focus on creating the best Minecraft experience
+                possible by creating a single Minecraft client that can take care of any and all of your needs. Badlion
+                Client supports over 100 mods, adds tons of FPS improvements"
+                <br/>
+                <br/>
+                I worked on implementing new features, fixing bugs and optimising the code. I used tools such
+                as Intellij IDEA,
+                Eclipse
+                Memory Analyser Tool, async profiler.</p>
+        </div>
+        <div class="project">
+            <div class="project-imgs">
+                <a href="https://www.coley.software/Recaf/">
+                    <img class="project-img img-grow"
+                         src="imgs/recaf.png"
+                         alt="Recaf logo"></a>
+            </div>
+            <h3>Recaf</h3>
+            <h4>Java, jvm bytecode, Reverse Engineering</h4>
+            <p>"Recaf is an open-source Java bytecode editor that simplifies the process of editing compiled Java
+                applications"
+                <br/>
+                <br/>
+                I have contributed to <a href="https://github.com/Col-E/Recaf">Recaf</a>, adding new mapping support,
+                adding
+                class access icons tooltips, remapping manifest and built my own Recaf <a
+                        href="https://github.com/1fxe/Recaf4Forge">plugin</a> used for mapping Forge Mods</p>
+        </div>
+    </div>
+    <div>
+        <h2 class="projects">Intrests</h2>
+        <div class="project">
+            <h3>Music 🎵</h3>
+            <iframe title="spotify playlist" style="border-radius:12px"
+                    src="https://open.spotify.com/embed/playlist/37i9dQZF1E368MQTTNbtCD?utm_source=generator"
+                    width="100%" height="80" frameBorder="0" allowfullscreen=""
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy"></iframe>
+        </div>
+        <div class="project">
+            <h3>Reverse Engineering 💻</h3>
+        </div>
+        <div class="project">
+            <h3>Hiking 🥾</h3>
+        </div>
+    </div>
+</div>
+</body>
+</html>
