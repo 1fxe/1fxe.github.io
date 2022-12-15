@@ -7,7 +7,6 @@
     <title>Filip</title>
     <script src="script.js" referrerpolicy="strict-origin" type="application/javascript"></script>
     <link rel="shortcut icon" href="imgs/favicon.ico" type="image/x-icon">
-    <link rel="manifest" href="/manifest.webmanifest">
     <meta name="theme-color" content="#f1f1f1">
 </head>
 <style>
@@ -96,6 +95,11 @@
     .socials > li > a > img {
         width: 3rem;
     }
+
+    canvas {
+        margin: auto;
+        max-width: 1080px; 
+    }   
 </style>
 <body>
 <div class="content">
@@ -124,17 +128,18 @@
                          alt="badlion logo"></a>
             </div>
             <h3>Badlion Client</h3>
-            <h4>Java, OpenGL, GLSL, Profiling (Memory, Performance)</h4>
+            <h4>Java, OpenGL, GLSL, Profiling (Memory, Performance), Intellij, Async Profiler, VisualVM</h4>
             <p>"<a href="https://client.badlion.net/lite-edition">Badlion Client</a> today is one of the
                 largest Minecraft communities for gamers worldwide. We focus on creating the best Minecraft experience
                 possible by creating a single Minecraft client that can take care of any and all of your needs. Badlion
                 Client supports over 100 mods, adds tons of FPS improvements"
-                <br/>
-                <br/>
-                I worked on implementing new features ✨, fixing bugs 🐛 and optimising 🚀 the code. I used tools such
-                as Intellij IDEA,
-                Eclipse
-                Memory Analyser Tool, async profiler.</p>
+                <ul>
+                    <li>Optimising the Client over 2x performance increase some areas 🚀</li>
+                    <li>Implemented over 20 new features & Fixed over 400 bugs so far</li>
+                    <li>Worked closely with YouTube and Twitch partners</li>
+                    <li>Investigation into performance optimistaions and learning modern OpenGL</li>
+                </ul>
+            </p>
         </div>
         <div class="project">
             <div class="project-imgs">
@@ -145,14 +150,12 @@
             </div>
             <h3>Recaf</h3>
             <h4>Java, JVM bytecode, Reverse Engineering</h4>
-            <p>"Recaf is an open-source Java bytecode editor that simplifies the process of editing compiled Java
+            <p>"<a href="https://github.com/Col-E/Recaf">Recaf</a> is an open-source Java bytecode editor that simplifies the process of editing compiled Java
                 applications" 
-                <br/>
-                <br/>
-                I have contributed to <a href="https://github.com/Col-E/Recaf">Recaf</a>, adding new mapping support,
-                adding
-                class access icons tooltips, remapping manifest 🏆. I also built my own Recaf <a
-                        href="https://github.com/1fxe/Recaf4Forge">plugin</a> used for mapping Forge Mods </p> 
+                <ul>
+                    <li>Added new mapping support including TSRG Mappings</li>
+                    <li>Built my own I also built my own Recaf <a href="https://github.com/1fxe/Recaf4Forge">plugin</a> for mapping and reverse engineering Forge Mods</li>
+                </ul>
         </div>
     </div>
     <div style="padding-bottom: 10px;">
@@ -167,14 +170,55 @@
             </div>
         </div>
         <div class="project">
-            <h3>Minecraft ⛏️</h3>
-            <img style="filter: drop-shadow(0px 5px 5px #454550);" src="https://minotar.net/avatar/glDrawArrays/64.png"  loading="lazy" alt="My Minecraft Player head"/>
-            <p>I have been playing Minecraft since 2011!</p>
-        </div>
-        <div class="project">
             <h3>OpenGL 💫</h3>
         </div>
     </div>
 </div>
+<script src="three.js" type="application/javascript"></script>
+<script async>
+    const scene = new THREE.Scene();    
+    const camera = new THREE.PerspectiveCamera(80, 200 / 200, 0.1, 1000);
+    const texture = new THREE.TextureLoader().load("https://minotar.net/skin/glDrawArrays");
+    texture.minFilter = THREE.NearestMipmapNearestFilter
+    texture.magFilter = THREE.NearestFilter
+    texture.wrapS = THREE.ClampToEdgeWrapping;
+    texture.wrapT = THREE.ClampToEdgeWrapping;
+    const renderer = new THREE.WebGLRenderer({ antialias: false });
+    renderer.setSize(200, 200);
+    renderer.setClearColor(0xffffff, 0);
+    document.body.querySelector("body > div > div:nth-child(3) > div:nth-child(3)").appendChild(renderer.domElement)
+
+    const geometry = new THREE.BoxGeometry(1, 1, 1);
+
+    const uvs = [
+            8, 56, 16, 56, 8, 48, 16, 48,
+            8, 56, 16, 56, 8, 48, 16, 48,
+            8, 56, 16, 56, 8, 48, 16, 48,
+            8, 56, 16, 56, 8, 48, 16, 48,
+            8, 56, 16, 56, 8, 48, 16, 48,
+            8, 56, 16, 56, 8, 48, 16, 48
+        ].flatMap(v => v / 64)
+    geometry.setAttribute('uv', new THREE.Float32BufferAttribute(uvs, 2));
+
+    const material = new THREE.MeshBasicMaterial({ map: texture});
+    const cube = new THREE.Mesh(geometry, material);
+
+    const ambientLight = new THREE.AmbientLight(0xFFFFFF)
+    scene.add(ambientLight)
+    scene.add(cube);
+
+    camera.position.z = 2;
+
+    function animate() {
+        requestAnimationFrame(animate);
+
+        cube.rotation.x += 0.01;
+        cube.rotation.y += 0.01;
+    
+        renderer.render(scene, camera);
+    };
+
+    animate();
+</script>
 </body>
 </html>
